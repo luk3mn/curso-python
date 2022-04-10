@@ -1,7 +1,10 @@
+# TEORIA:
 # Lista envolvem 
 # dados entre colchetes; 
 # dicionário entre entre chaves; 
 # tuplas entre parênteses
+
+#
 
 # dicionário de dados
 usuarios = {}
