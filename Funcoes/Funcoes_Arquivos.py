@@ -27,4 +27,9 @@ def persistir(dicionario):
 def exibir():
     with open("../3_3_Manipula_Arquivos/inventario.csv", "r") as inv:
         linhas = inv.readlines()
-    return linhas
+        for linha in linhas:
+            lista = linha.split(";")
+            print("Data.........: ", lista[1])
+            print("Descrição....: ", lista[2])
+            print("Departamento.: ", lista[3])
+    # return linhas
