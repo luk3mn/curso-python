@@ -1,0 +1,16 @@
+CONTRUIR UM GERENCIADOR PARA UMA LOJA:
+1. Produtos:
+  - cadastrar 
+  - listar categoria de produtos
+  - pesquisar 
+  - atualizar 
+  - remover
+2. Cliente (dados):
+  - cadastrar 
+  - pesquisar 
+  - atualizar 
+  - remover
+3. Venda:
+  - Registrar venda 
+  - Pesquisar código da venda
+  - Atualizar venda

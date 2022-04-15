@@ -1,0 +1,11 @@
+CONTRUIR UM GERENCIADOR/CATALOGADOR DE INVENTÁRIO:
+- Armazene tudo em arquivo
+- Crie, pelo menos, duas formas de saídas, por
+  modelos, atualizações e valores
+
+# Produtos:
+  - Cadastrar (código do produto, descrição, preço, categoria, data de registro, quantidade em estoque, quantidade vendida)
+  - Listar categoria de produtos
+  - Pesquisar 
+  - Atualizar 
+  - Remover
