@@ -31,10 +31,16 @@ def save_file(dicionary, file):
 def register(file):
   # carrega os dados do arquivo para o dicionario de dados
   dicionary = read_file(file)
+
+  keys=list()
+  for key, values in dicionary.items():
+    keys.append(int(key))
+  new_key = max(keys)+1
+  print(new_key)
+
   sysDate = date.today() # pega a hora atual
-  [description, prod_code, cat_code, price, category, quantity] = [
+  [description, cat_code, price, category, quantity] = [
     input("Informe os dados do produto\nDescrição do produto:"),
-    input("Código do produto: "),
     input("Código da categoria: "),
     input("Preço: "),
     input("Categoria: "),
@@ -42,7 +48,7 @@ def register(file):
   ]
 
   # registra dos dados de entrada no dicionario de dados
-  dicionary[prod_code]=[description, cat_code, float(price), category, str(sysDate), int(quantity)]
+  dicionary[new_key]=[description, cat_code, float(price), category, str(sysDate), int(quantity)]
   # salva os dados do dicionario do arquivo json
   save_file(dicionary, file)
 
@@ -61,15 +67,52 @@ def show(file, code=None, cat_code=None):
     if cat_code == values[1]:
       print("Produto: {}\nCategoria: {}\n".format(values[0], values[3]))
 
+def options_update():
+  option = input("O que deseja alterar"
+                    "\n[1] Descrição"
+                    "\n[2] Categoria"
+                    "\n[3] Preço"
+                    "\n[4} Quantidade"
+                    "\n[0] Cancelar"
+                    "\nEscolha um opção: ")
+  return option
+
+
 def update(file, code):
   dicionary = read_file(file)
   for key, values in dicionary.items():
     if code == key:
       print(values)
+      option = options_update()
+      while(option != "0"):
+        if option != "0":
+          new_value = input("Novo valor: ")
+        if option == "1":
+          values[0]=new_value # atribui novo valor ao dicionario
+        if option == "2":
+          values[1]=new_value
+          if new_value == "1":
+            values[3]="Bebidas"
+          if new_value == "2":
+            values[3]="Laticínios"
+          if new_value == "3":
+            values[3]="Doces"
+        if option == "3":
+          values[2]=new_value
+        if option == "4":
+          values[5]=new_value
+        print(values)
+        option = options_update()
+  # salva no arquivo json o novo valor
+  save_file(dicionary, file)
 
 
 def delete(file, code):
   dicionary = read_file(file)
-  for key, values in dicionary.items():
-    if code == key:
-      print(values)
+  print(dicionary[code])
+  confirm = input("Você tem certeza disso? [S/N]: ").upper()
+  if (confirm == "S"):
+    del dicionary[code]
+    print("Removido com sucesso!")
+  # salva a remoção no arquivo json
+  save_file(dicionary, file)
