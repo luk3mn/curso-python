@@ -1,0 +1,10 @@
+Nome do Projeto: Access_Log
+
+Contruir uma ferramenta em que o usuário faz login no sistema e
+automaticamente é enviado para um arquivo json informações/ações
+referentes a esse usuário:
+- Cadastrar usuário (validar ação)
+- Remover usuario (Validar ação)
+- Login (validar ação)
+- log: nome do usuario, informações da máquina utilizada, data e
+       hora da ocorrencia e nível de acesso do usuário
